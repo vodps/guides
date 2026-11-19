@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Roblox Gift Card Guide</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #050505;
+            --black-light: #0b0b0b;
+            --black-card: #101010;
+
+            --red: #ff3b3b;
+            --red-light: #ff6262;
+            --red-dark: #d91f1f;
+
+            --text: #ffffff;
+            --muted: #b5b5b5;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        
+        body {
+
+            font-family: 'Nunito', sans-serif;
+
+            color: var(--text);
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(255, 45, 45, 0.20),
+                    transparent 38%
+                ),
+
+                radial-gradient(
+                    circle at 0% 50%,
+                    rgba(255, 40, 40, 0.08),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 100% 60%,
+                    rgba(255, 40, 40, 0.08),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #050505 0%,
+                    #080808 50%,
+                    #030303 100%
+                );
+
+        }
+
+
+        /* =========================================
+           BACKGROUND GLOW
+        ========================================= */
+
+        .background-glow {
+
+            position: fixed;
+
+            width: 650px;
+            height: 650px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 40, 40, 0.12);
+
+            filter: blur(140px);
+
+            top: -420px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            pointer-events: none;
+
+            z-index: -1;
+
+        }
+
+
+        /* =========================================
+           MAIN CONTAINER
+        ========================================= */
+
+        .container {
+
+            width: min(
+                calc(100% - 30px),
+                850px
+            );
+
+            margin: auto;
+
+            padding-top: 75px;
+
+            padding-bottom: 70px;
+
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            text-align: center;
+
+            max-width: 720px;
+
+            margin: 0 auto 35px;
+
+            animation:
+                fadeUp 0.8s ease forwards;
+
+        }
+
+
+        /* =========================================
+           BADGE
+        ========================================= */
+
+        .badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 9px 16px;
+
+            border-radius: 50px;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.10);
+
+            color: #ffffff;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 30px
+                rgba(0, 0, 0, 0.25);
+
+            margin-bottom: 20px;
+
+            backdrop-filter: blur(10px);
+
+        }
+
+
+        .badge-dot {
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--red);
+
+            box-shadow:
+                0 0 0 4px
+                rgba(255, 59, 59, 0.12),
+
+                0 0 15px
+                rgba(255, 59, 59, 0.6);
+
+        }
+
+
+        /* =========================================
+           TITLE
+        ========================================= */
+
+        h1 {
+
+            font-size:
+                clamp(39px, 6vw, 65px);
+
+            line-height: 1.03;
+
+            letter-spacing: -2.7px;
+
+            font-weight: 800;
+
+            color: #ffffff;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .gradient-text {
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    #ff3030,
+                    #ff5555,
+                    #ff8585
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+        }
+
+
+        /* =========================================
+           HERO DESCRIPTION
+        ========================================= */
+
+        .hero-description {
+
+            max-width: 610px;
+
+            margin: auto;
+
+            color: #bdbdbd;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            font-weight: 500;
+
+        }
+
+
+        /* =========================================
+           GUIDE SECTION
+        ========================================= */
+
+        .guide-card {
+
+            position: relative;
+
+            overflow: visible;
+
+            padding: 0;
+
+            background: transparent;
+
+            border: none;
+
+            box-shadow: none;
+
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            animation:
+                cardAppear
+                0.8s ease
+                0.15s forwards;
+
+        }
+
+
+        /* =========================================
+           GIFT CARD IMAGE
+        ========================================= */
+
+        .cardsbox {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin: 30px auto 30px;
+
+            padding: 0;
+
+        }
+
+
+        .cardsbox img {
+
+            width: min(
+                100%,
+                430px
+            );
+
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 18px;
+
+            filter:
+
+                drop-shadow(
+                    0 28px 45px
+                    rgba(0, 0, 0, 0.65)
+                )
+
+                drop-shadow(
+                    0 0 25px
+                    rgba(255, 40, 40, 0.10)
+                );
+
+            transition:
+                transform 0.4s ease;
+
+        }
+
+
+        .cardsbox img:hover {
+
+            transform:
+                translateY(-8px)
+                scale(1.02);
+
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .download-container {
+
+            position: relative;
+
+            z-index: 3;
+
+            display: flex;
+
+            justify-content: center;
+
+            margin: 15px 0 35px;
+
+        }
+
+
+        .linkbutton {
+
+            position: relative;
+
+            width: min(
+                100%,
+                330px
+            );
+
+            height: 60px;
+
+            border: none;
+
+            border-radius: 17px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #d91f1f,
+                    #f12e2e,
+                    #ff5555
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            box-shadow:
+
+                0 14px 35px
+                rgba(255, 35, 35, 0.20);
+
+            transition:
+
+                transform 0.3s ease,
+
+                box-shadow 0.3s ease;
+
+        }
+
+
+        /* =========================================
+           BUTTON SHIMMER
+        ========================================= */
+
+        .linkbutton::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -110%;
+
+            width: 70%;
+
+            height: 100%;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.30),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            transition:
+                left 0.6s ease;
+
+        }
+
+
+        .linkbutton:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+
+                0 19px 45px
+                rgba(255, 35, 35, 0.30);
+
+        }
+
+
+        .linkbutton:hover::before {
+
+            left: 145%;
+
+        }
+
+
+        .linkbutton:active {
+
+            transform:
+                scale(0.96);
+
+        }
+
+
+        /* =========================================
+           SECOND IMAGE
+        ========================================= */
+
+        .content-image-container {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 10px;
+
+        }
+
+
+        .content-image {
+
+            width: 100%;
+
+            max-width: 760px;
+
+            height: auto;
+
+            display: block;
+
+            border-radius: 18px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            box-shadow:
+
+                0 20px 55px
+                rgba(0, 0, 0, 0.55);
+
+            transition:
+                transform 0.4s ease;
+
+        }
+
+
+        .content-image:hover {
+
+            transform:
+                translateY(-4px);
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+
+            text-align: center;
+
+            color: #666666;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-top: 30px;
+
+            opacity: 0;
+
+            animation:
+                fadeIn
+                1s ease
+                0.7s forwards;
+
+        }
+
+
+        /* =========================================
+           ANIMATIONS
+        ========================================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        
+@media screen and (max-width: 650px) {
+
+    .container {
+
+        width: 100%;
+
+        padding-left: 16px;
+        padding-right: 16px;
+
+        padding-top: 50px;
+        padding-bottom: 45px;
+
+    }
+
+    .hero {
+        margin-bottom: 25px;
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 8px 13px;
+    }
+
+    h1 {
+        font-size: clamp(36px, 11vw, 50px);
+        letter-spacing: -1.8px;
+        margin-bottom: 15px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+        line-height: 1.65;
+        padding: 0 5px;
+    }
+
+    .cardsbox {
+        margin: 25px auto;
+    }
+
+    .cardsbox img {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    .download-container {
+        margin: 12px 0 30px;
+    }
+
+    .linkbutton {
+        width: 100%;
+        height: 57px;
+        border-radius: 15px;
+    }
+
+    .content-image-container {
+        margin-top: 5px;
+    }
+
+    .content-image {
+        border-radius: 14px;
+    }
+
+    .footer {
+        margin-top: 25px;
+    }
+}
+
+
+
+            .contain2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1vh;
+}
+
+        /* =========================================
+           SMALL PHONES
+        ========================================= */
+
+        @media screen and (max-width: 380px) {
+
+            .container {
+
+                width:
+                    calc(100% - 18px);
+
+            }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            * {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="background-glow"></div>
+
+
+    <main class="container">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+
+            <div class="badge">
+
+                <span class="badge-dot"></span>
+
+                Roblox Gift Card Guide
+
+            </div>
+
+
+            <h1>
+
+                Your guide to
+
+                <span class="gradient-text">
+                    Roblox rewards.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Discover simple ways to find legitimate
+                Roblox gift card rewards and Robux,
+                all in one easy-to-follow guide.
+
+            </p>
+
+
+        </section>
+
+
+
+        <!-- CONTENT -->
+
+        <section class="guide-card">
+
+
+            <!-- ROBLOX GIFT CARD IMAGE -->
+
+            <div class="cardsbox">
+
+                <img
+                    src="https://cdn11.bigcommerce.com/s-nvm4ppzu5/images/stencil/1280x1280/products/255/1337/107630__34260.1682350664.png?c=1"
+                    alt="Roblox Gift Card"
+                >
+
+            </div>
+
+            <div class="contain2">
+            <div
+                data-captcha-enable="true"
+            ></div>
+                </div>
+            <!-- CTA -->
+
+            <div class="download-container">
+
+                <button
+                    class="linkbutton"
+                    id="downloadButton"
+                >
+
+                    Get the Free Guide
+
+                </button>
+
+            </div>
+
+
+
+            <!-- SECOND IMAGE -->
+
+            <div class="content-image-container">
+
+                <img
+                    src="images/roblox.png"
+                    class="content-image"
+                    alt="Roblox Gift Card Guide"
+                >
+
+            </div>
+
+
+
+            <!-- CAPTCHA -->
+
+            
+
+
+        </section>
+
+
+
+        <div class="footer">
+
+            codez67 · 2026
+
+        </div>
+
+
+    </main>
+
+    <script type="text/javascript"src="https://lockedapp.net/cp/js/mrwj6"></script>
+
+    <script>
+
+
+        /* =========================================
+           BUTTON CLICK EFFECT
+        ========================================= */
+
+        const downloadButton =
+            document.getElementById(
+                "downloadButton"
+            );
+
+
+        downloadButton.addEventListener(
+            "click",
+            function () {
+
+                this.style.transform =
+                    "scale(0.95)";
+
+
+                setTimeout(() => {
+
+                    this.style.transform =
+                        "";
+
+                }, 180);
+
+
+                /*
+                    ADD YOUR DOWNLOAD /
+                    REDIRECT CODE HERE.
+
+                    Example:
+
+                    window.location.href =
+                        "download.html";
+                */
+
+            }
+        );
+
+
+
+        /* =========================================
+           GIFT CARD TILT EFFECT
+        ========================================= */
+
+        const giftImage =
+            document.querySelector(
+                ".cardsbox img"
+            );
+
+
+        giftImage.addEventListener(
+            "mousemove",
+            function (event) {
+
+                if (window.innerWidth <= 650)
+                    return;
+
+
+                const rect =
+                    giftImage.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateX =
+                    ((y - centerY) /
+                    centerY) * -2;
+
+
+                const rotateY =
+                    ((x - centerX) /
+                    centerX) * 2;
+
+
+                giftImage.style.transform =
+
+                    `perspective(800px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-5px)`;
+
+            }
+        );
+
+
+        giftImage.addEventListener(
+            "mouseleave",
+            function () {
+
+                giftImage.style.transform =
+                    "";
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
+
